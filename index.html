@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy New Year 2026</title>
+
+<style>
+:root{
+  --start-overlay:rgba(0,0,0,.7);
+  --bg1:#101a42;
+  --bg2:#3a132f;
+
+  --emoji:#e8e8e8;
+  --hint:#b0b0b0;
+
+  /* RED NAME */
+  --name:#ff2b2b;
+  --name-glow:rgba(255,40,40,.9);
+
+  --orbit-soft:rgba(255,120,120,.35);
+  --tagline:#9bc9ff;
+  --quote:#cfcfcf;
+  --year:#ffd97a;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI,sans-serif;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  cursor:pointer;
+  color:var(--emoji);
+}
+
+/* START BACKGROUND IMAGE */
+.bg-image{
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(var(--start-overlay),var(--start-overlay)),
+    url("https://sl.bing.net/cylJHpRPZO8") center/cover no-repeat;
+  transition:opacity 2s ease;
+  z-index:-2;
+}
+
+/* REVEAL BACKGROUND */
+.bg-reveal{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(120deg,var(--bg1),var(--bg2));
+  opacity:0;
+  transition:opacity 2s ease;
+  z-index:-3;
+}
+
+/* STARS */
+#stars{position:fixed;inset:0;z-index:-1}
+
+/* CENTER */
+.center{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  width:90%;
+}
+
+/* START */
+.avatar{
+  font-size:82px;
+  animation:pulse 4s ease-in-out infinite;
+}
+@keyframes pulse{50%{transform:scale(1.08)}}
+
+.hint{margin-top:22px;color:var(--hint)}
+
+/* REVEAL */
+.content{opacity:0;transition:1.6s ease}
+.content.show{opacity:1}
+
+/* NAME WRAPPER */
+.name-wrap{
+  position:relative;
+  display:inline-block;
+  margin-bottom:22px;
+}
+
+/* NAME */
+.name{
+  font-size:clamp(36px,8vw,74px);
+  font-weight:800;
+  letter-spacing:6px;
+  position:relative;
+  z-index:2;
+}
+
+.name span{
+  opacity:0;
+  display:inline-block;
+  animation:
+    letterIn .6s forwards,
+    wave 2.5s ease-in-out infinite;
+
+  /* BLACK BORDER */
+  -webkit-text-stroke: 2px #000;
+}
+
+@keyframes letterIn{
+  from{
+    opacity:0;
+    transform:translateY(18px) scale(.9);
+    filter:blur(6px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+    filter:blur(0);
+    color:var(--name);
+    text-shadow:
+      0 0 12px var(--name),
+      0 0 30px var(--name-glow),
+      0 0 60px rgba(255,0,0,.6);
+  }
+}
+@keyframes wave{50%{transform:translateY(-6px)}}
+
+/* ORBIT TEXT */
+.orbit{
+  position:absolute;
+  inset:-55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  animation:spin 30s linear infinite;
+  pointer-events:none;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.orbit span{
+  color:var(--orbit-soft);
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+/* TAGLINE */
+.tagline{
+  color:var(--tagline);
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+/* QUOTE */
+.quote{
+  max-width:600px;
+  margin:auto;
+  font-size:18px;
+  line-height:1.8;
+  color:var(--quote);
+  opacity:0;
+  animation:fade 2s forwards .6s;
+}
+@keyframes fade{to{opacity:1}}
+
+/* YEAR */
+.year{
+  margin-top:36px;
+  font-size:30px;
+  font-weight:700;
+  color:var(--year);
+}
+
+.year span{
+  opacity:0;
+  display:inline-block;
+  animation:digitIn .6s forwards;
+}
+
+@keyframes digitIn{
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(.8);
+    filter:blur(4px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+    filter:blur(0);
+    text-shadow:
+      0 0 12px rgba(255,217,122,.8),
+      0 0 28px rgba(255,217,122,.6);
+  }
+}
+.year.done{
+  animation:yearGlow 3s ease-in-out infinite;
+}
+@keyframes yearGlow{
+  50%{
+    text-shadow:
+      0 0 18px rgba(255,217,122,.9),
+      0 0 40px rgba(255,217,122,.7);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-image" id="bgImage"></div>
+<div class="bg-reveal" id="bgReveal"></div>
+<canvas id="stars"></canvas>
+
+<!-- START -->
+<div class="center" id="start">
+  <div class="avatar">🧍</div>
+  <div class="hint">Click anywhere for a surprise ✨</div>
+</div>
+
+<!-- REVEAL -->
+<div class="center content" id="reveal">
+
+  <div class="name-wrap">
+    <div class="orbit">
+      <span>WELCOME • CELEBRATION • 2026 • HAPPINESS • JOY • NEW BEGINNING •</span>
+    </div>
+    <div class="name" id="name"></div>
+  </div>
+
+  <div class="tagline">"End-to-end encryption⁉️"</div>
+
+  <div class="quote">
+    “Two people may speak in a crowded room,<br>
+    yet their words remain only theirs.”
+  </div>
+
+  <div class="year" id="year">
+    Happy New Year <span>2</span><span>0</span><span>2</span><span>6</span> 🎆
+  </div>
+</div>
+
+<script>
+/* STARS */
+const c=document.getElementById("stars"),x=c.getContext("2d");
+let w,h,stars=[],active=false;
+
+function resize(){
+  w=c.width=innerWidth;
+  h=c.height=innerHeight;
+  stars=Array.from({length:200},()=>({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    z:Math.random()*1.4+.3
+  }));
+}
+addEventListener("resize",resize);
+resize();
+
+function draw(){
+  x.clearRect(0,0,w,h);
+  x.fillStyle="#fff";
+  stars.forEach(s=>{
+    s.y+=active?s.z:.12;
+    if(s.y>h)s.y=0;
+    x.globalAlpha=active?.7:.12;
+    x.fillRect(s.x,s.y,2,2);
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+/* CLICK ANYWHERE */
+const start=document.getElementById("start");
+const reveal=document.getElementById("reveal");
+const bgImage=document.getElementById("bgImage");
+const bgReveal=document.getElementById("bgReveal");
+const nameEl=document.getElementById("name");
+const yearEl=document.getElementById("year");
+const digits=[...yearEl.querySelectorAll("span")];
+
+const NAME="AMRIT BHAIYA";
+let done=false;
+
+document.body.onclick=()=>{
+  if(done) return;
+  done=true;
+
+  active=true;
+  bgImage.style.opacity=0;
+  bgReveal.style.opacity=1;
+  start.style.opacity=0;
+
+  setTimeout(()=>{
+    start.style.display="none";
+    reveal.classList.add("show");
+    animateName();
+    animateYear();
+  },1300);
+};
+
+function animateName(){
+  [...NAME].forEach((c,i)=>{
+    const s=document.createElement("span");
+    s.textContent=c===" "?"\u00A0":c;
+    s.style.animationDelay=`${i*.12}s,${i*.15}s`;
+    nameEl.appendChild(s);
+  });
+}
+
+function animateYear(){
+  digits.forEach((d,i)=>{
+    d.style.animationDelay=`${i*.25}s`;
+  });
+  setTimeout(()=>yearEl.classList.add("done"),1200);
+}
+</script>
+
+</body>
+</html>
