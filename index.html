@@ -1,326 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy New Year 2026</title>
-
-<style>
-:root{
-  --start-overlay:rgba(0,0,0,.7);
-  --bg1:#101a42;
-  --bg2:#3a132f;
-
-  --emoji:#e8e8e8;
-  --hint:#b0b0b0;
-
-  /* RED NAME */
-  --name:#ff2b2b;
-  --name-glow:rgba(255,40,40,.9);
-
-  --orbit-soft:rgba(255,120,120,.35);
-  --tagline:#9bc9ff;
-  --quote:#cfcfcf;
-  --year:#ffd97a;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Segoe UI,sans-serif;
-}
-
-body{
-  height:100vh;
-  overflow:hidden;
-  cursor:pointer;
-  color:var(--emoji);
-}
-
-/* START BACKGROUND IMAGE */
-.bg-image{
-  position:fixed;
-  inset:0;
-  background:
-    linear-gradient(var(--start-overlay),var(--start-overlay)),
-    url("https://sl.bing.net/cylJHpRPZO8") center/cover no-repeat;
-  transition:opacity 2s ease;
-  z-index:-2;
-}
-
-/* REVEAL BACKGROUND */
-.bg-reveal{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(120deg,var(--bg1),var(--bg2));
-  opacity:0;
-  transition:opacity 2s ease;
-  z-index:-3;
-}
-
-/* STARS */
-#stars{position:fixed;inset:0;z-index:-1}
-
-/* CENTER */
-.center{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  text-align:center;
-  width:90%;
-}
-
-/* START */
-.avatar{
-  font-size:82px;
-  animation:pulse 4s ease-in-out infinite;
-}
-@keyframes pulse{50%{transform:scale(1.08)}}
-
-.hint{margin-top:22px;color:var(--hint)}
-
-/* REVEAL */
-.content{opacity:0;transition:1.6s ease}
-.content.show{opacity:1}
-
-/* NAME WRAPPER */
-.name-wrap{
-  position:relative;
-  display:inline-block;
-  margin-bottom:22px;
-}
-
-/* NAME */
-.name{
-  font-size:clamp(36px,8vw,74px);
-  font-weight:800;
-  letter-spacing:6px;
-  position:relative;
-  z-index:2;
-}
-
-.name span{
-  opacity:0;
-  display:inline-block;
-  animation:
-    letterIn .6s forwards,
-    wave 2.5s ease-in-out infinite;
-
-  /* BLACK BORDER */
-  -webkit-text-stroke: 2px #000;
-}
-
-@keyframes letterIn{
-  from{
-    opacity:0;
-    transform:translateY(18px) scale(.9);
-    filter:blur(6px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-    filter:blur(0);
-    color:var(--name);
-    text-shadow:
-      0 0 12px var(--name),
-      0 0 30px var(--name-glow),
-      0 0 60px rgba(255,0,0,.6);
-  }
-}
-@keyframes wave{50%{transform:translateY(-6px)}}
-
-/* ORBIT TEXT */
-.orbit{
-  position:absolute;
-  inset:-55px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  animation:spin 30s linear infinite;
-  pointer-events:none;
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-.orbit span{
-  color:var(--orbit-soft);
-  font-size:12px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-}
-
-/* TAGLINE */
-.tagline{
-  color:var(--tagline);
-  font-size:18px;
-  margin-bottom:12px;
-}
-
-/* QUOTE */
-.quote{
-  max-width:600px;
-  margin:auto;
-  font-size:18px;
-  line-height:1.8;
-  color:var(--quote);
-  opacity:0;
-  animation:fade 2s forwards .6s;
-}
-@keyframes fade{to{opacity:1}}
-
-/* YEAR */
-.year{
-  margin-top:36px;
-  font-size:30px;
-  font-weight:700;
-  color:var(--year);
-}
-
-.year span{
-  opacity:0;
-  display:inline-block;
-  animation:digitIn .6s forwards;
-}
-
-@keyframes digitIn{
-  from{
-    opacity:0;
-    transform:translateY(12px) scale(.8);
-    filter:blur(4px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-    filter:blur(0);
-    text-shadow:
-      0 0 12px rgba(255,217,122,.8),
-      0 0 28px rgba(255,217,122,.6);
-  }
-}
-.year.done{
-  animation:yearGlow 3s ease-in-out infinite;
-}
-@keyframes yearGlow{
-  50%{
-    text-shadow:
-      0 0 18px rgba(255,217,122,.9),
-      0 0 40px rgba(255,217,122,.7);
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#12091f">
+  <title>Happy Diwali, Bhai! 🪔</title>
+  <style>
+    :root { color-scheme: dark; --gold:#ffd36a; --cream:#fff2d1; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; min-height:100%; }
+    body {
+      min-height:100vh; overflow:hidden; display:grid; place-items:center;
+      font-family:Georgia, 'Times New Roman', serif; color:var(--cream);
+      background:radial-gradient(ellipse at 50% 45%,#4b1b35 0%,#1c102b 45%,#090713 100%);
+    }
+    .glow { position:fixed; width:32rem; height:32rem; border-radius:50%; filter:blur(100px); opacity:.2; pointer-events:none; }
+    .g1 { background:#ff7a18; top:-15rem; left:-10rem; }
+    .g2 { background:#a52a7a; right:-15rem; bottom:-15rem; }
+    canvas { position:fixed; inset:0; width:100%; height:100%; pointer-events:none; }
+    .card {
+      position:relative; z-index:1; width:min(92vw,650px); padding:clamp(2rem,6vw,4.3rem) 1.5rem;
+      text-align:center; border:1px solid rgba(255,211,106,.5); border-radius:28px;
+      background:linear-gradient(145deg,rgba(55,25,50,.83),rgba(16,12,31,.88));
+      box-shadow:0 0 50px rgba(255,164,49,.12), inset 0 0 35px rgba(255,211,106,.05);
+      backdrop-filter:blur(8px);
+    }
+    .eyebrow { color:var(--gold); letter-spacing:.28em; text-transform:uppercase; font:600 .72rem Arial,sans-serif; }
+    h1 { margin:.65rem 0 .5rem; color:#ffe7a4; font-size:clamp(2.8rem,10vw,5.8rem); line-height:1.02; text-shadow:0 0 24px rgba(255,184,70,.5); }
+    .sub { margin:.8rem 0 1.4rem; font-size:clamp(1.1rem,3vw,1.45rem); color:#fff4d9; }
+    .diya-row { display:flex; justify-content:center; gap:1.2rem; margin:1.2rem 0; font-size:clamp(2.5rem,9vw,4rem); }
+    .diya { display:inline-block; filter:drop-shadow(0 0 13px #ff9b36); animation:flicker 1.7s ease-in-out infinite alternate; }
+    .diya:nth-child(2) { animation-delay:.5s; }
+    .diya:nth-child(3) { animation-delay:1s; }
+    @keyframes flicker { from{transform:translateY(2px) rotate(-3deg);filter:drop-shadow(0 0 8px #ff8b31)} to{transform:translateY(-5px) rotate(3deg);filter:drop-shadow(0 0 23px #ffd56a)} }
+    .message { max-width:470px; margin:1rem auto 1.7rem; color:#f7e6ce; font:1.08rem/1.8 Arial,sans-serif; }
+    .signature { color:var(--gold); font-style:italic; font-size:1.2rem; }
+    button {
+      border:1px solid #ffe0a0; border-radius:999px; padding:.9rem 1.4rem; margin-top:1.4rem;
+      color:#321629; background:linear-gradient(100deg,#ffe7a4,#ffb84d); font-weight:700;
+      font:700 .95rem Arial,sans-serif; cursor:pointer; box-shadow:0 5px 22px #ffb84d44;
+    }
+    button:focus-visible { outline:3px solid white; outline-offset:4px; }
+    .hint { margin:.85rem 0 0; color:#cdb6c6; font: .75rem Arial,sans-serif; }
+    .touch-pop {
+      position:fixed; z-index:5; pointer-events:none; left:0; top:0;
+      transform:translate(-50%,-50%) scale(.5); opacity:0;
+      color:#fff0b8;
+      font-family:"Brush Script MT","Segoe Script","URW Chancery L",cursive;
+      font-size:clamp(1.5rem,6vw,2.35rem); font-weight:700; font-style:italic;
+      letter-spacing:.035em; white-space:nowrap;
+      text-shadow:0 0 8px #ffb84d,0 0 22px #ff8c42,0 2px 4px #321629;
+      animation:touchRise 1.35s ease-out forwards;
+    }
+    .touch-heart {
+      position:fixed; z-index:5; pointer-events:none; font-size:1.5rem;
+      transform:translate(-50%,-50%); animation:heartFloat 1.2s ease-out forwards;
+    }
+    .touch-ring {
+      position:fixed; z-index:4; pointer-events:none; width:18px; height:18px;
+      border:3px solid var(--touch-color); border-radius:50%;
+      transform:translate(-50%,-50%); animation:ringExpand .85s ease-out forwards;
+      box-shadow:0 0 15px var(--touch-color),inset 0 0 10px var(--touch-color);
+    }
+    .touch-spark {
+      position:fixed; z-index:6; pointer-events:none; font-size:clamp(1rem,3vw,1.5rem);
+      transform:translate(-50%,-50%); animation:sparkFly 1.15s cubic-bezier(.15,.7,.3,1) forwards;
+      filter:drop-shadow(0 0 8px var(--touch-color));
+    }
+    @keyframes ringExpand {
+      0%{opacity:1;width:12px;height:12px;border-width:4px}
+      100%{opacity:0;width:190px;height:190px;border-width:1px}
+    }
+    @keyframes sparkFly {
+      0%{opacity:1;transform:translate(-50%,-50%) scale(.4) rotate(0deg)}
+      100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.6) rotate(180deg)}
+    }
+    @keyframes touchRise {
+      0%{opacity:0;transform:translate(-50%,-30%) scale(.45)}
+      15%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}
+      75%{opacity:1}
+      100%{opacity:0;transform:translate(-50%,-150%) scale(1.18)}
+    }
+    @keyframes heartFloat {
+      0%{opacity:1;transform:translate(-50%,-50%) scale(.5)}
+      100%{opacity:0;transform:translate(-50%,-180%) scale(1.5)}
+    }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; scroll-behavior:auto!important; } }
+  </style>
 </head>
-
 <body>
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <canvas id="fireworks" aria-hidden="true"></canvas>
+  <main class="card">
+    <div class="eyebrow">A little festival surprise</div>
+    <div class="diya-row" aria-hidden="true"><span class="diya">🪔</span><span class="diya">✨</span><span class="diya">🪔</span></div>
+    <h1>Happy<br>Diwali!</h1>
+    <p class="message" lang="hi" style="margin:1.1rem auto 1.4rem;color:#ffe7a4;font-family:Georgia,'Noto Serif Devanagari',serif;font-size:1.16rem;line-height:1.95;font-style:italic">
+      हर दीपक एक नई शुरुआत का संदेश देता है—<br>
+      अपने लक्ष्य को पाने का संकल्प, और संघर्षों से लड़ने का साहस देता है।<br>
+      राह में अँधेरे कितने भी हों, हौसलों की लौ जलाए रखना;<br>
+      क्योंकि मंज़िल उन्हीं को मिलती है, जो ठोकरों से सीखकर आगे बढ़ते हैं। ✨
+    </p>
+    <p class="sub" lang="hi" style="font-family:Georgia,'Noto Serif Devanagari',serif;line-height:1.7;color:#ffe7c5">तू केवल मेरा भाई नहीं, इस परिवार की मुस्कान है—<br>रिश्तों की डोर में बँधा वह विश्वास है,<br>जो हर मुश्किल में अपना बनकर साथ निभाता है। ❤️</p>
+    <p class="message">
+      May your life always shine brighter than a thousand diyas.
+      Wishing you happiness, good health, success and endless reasons to smile.
+      Keep shining, keep laughing, and keep being the awesome brother you are!
+    </p>
+    <p class="message" lang="hi" style="color:#ffe3b2;font-family:Georgia,'Noto Serif Devanagari',serif;font-size:1.18rem;line-height:1.9">
+      भाई, तू सिर्फ मेरा भाई नहीं, मेरी ताकत और मेरी खुशियों की वजह है।<br>
+      चाहे जिंदगी में कितनी भी मुश्किलें आएँ, तेरा साथ हमेशा मेरे लिए सबसे बड़ा सहारा रहेगा।<br>
+      भगवान करे तेरी हर ख्वाहिश पूरी हो और तेरी जिंदगी हमेशा खुशियों से रोशन रहे।<br>
+      <strong>तू हमेशा मुस्कुराता रहे, क्योंकि तेरी खुशी ही मेरी सबसे बड़ी दिवाली है। ❤️</strong>
+    </p>
+    <p class="message" style="border-top:1px solid rgba(255,211,106,.3);padding-top:1.2rem">
+      <strong style="color:#ffd36a">My best wishes for you, Bhai! 🌟</strong><br>
+      May every new day bring you fresh hope, every dream find its way to reality,
+      and every step lead you towards success. May our bond always stay strong
+      and our home be filled with peace, laughter and love. Happy Diwali! 🪔
+    </p>
+    <p class="message" lang="hi" style="margin-top:-.6rem;color:#ffe7c5">
+      मेरी दिल से यही दुआ है कि तेरी जिंदगी का हर दिन रोशनी, सफलता और खुशियों से भरा रहे।
+      तेरे सारे सपने पूरे हों और तू हमेशा स्वस्थ, खुश और कामयाब रहे। ❤️
+    </p>
+    <div class="signature">रिश्तों की इस रोशनी में, आपका अपना भाई 💛</div>
+    <button id="celebrate" type="button">✨ Celebrate Diwali</button>
+    <p class="hint">Touch anywhere on the screen for a special surprise for VAIBHAV BHAIYA 💛</p>
+  </main>
+  <script>
+    (() => {
+      const canvas = document.getElementById('fireworks');
+      const ctx = canvas.getContext('2d');
+      const particles = [];
+      let w = 0, h = 0, dpr = 1;
+      const colors = ['#ffd166','#ff8c42','#ff5e78','#f7b7ff','#fff2b2','#8be9fd'];
+      function resize() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = window.innerWidth; h = window.innerHeight;
+        canvas.width = Math.floor(w * dpr); canvas.height = Math.floor(h * dpr);
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+      }
+      window.addEventListener('resize', resize); resize();
+      function burst(x, y) {
+        const color = colors[Math.floor(Math.random()*colors.length)];
+        const count = 55;
+        for (let i=0;i<count;i++) {
+          const a = Math.PI*2*i/count + Math.random()*.12;
+          const speed = 1.2 + Math.random()*4.2;
+          particles.push({x,y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,
+            life:55+Math.random()*35,max:90,size:1.2+Math.random()*2,color});
+        }
+      }
+      let last = 0;
+      function frame(now) {
+        requestAnimationFrame(frame);
+        ctx.clearRect(0,0,w,h);
+        if (now-last>1250) { burst(Math.random()*w, Math.random()*h*.55); last=now; }
+        for (let i=particles.length-1;i>=0;i--) {
+          const p=particles[i]; p.x+=p.vx; p.y+=p.vy; p.vy+=.035;
+          p.vx*=.985; p.vy*=.985; p.life--;
+          ctx.globalAlpha=Math.max(0,p.life/p.max);
+          ctx.fillStyle=p.color; ctx.shadowBlur=12; ctx.shadowColor=p.color;
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill();
+          if (p.life<=0) particles.splice(i,1);
+        }
+        ctx.globalAlpha=1; ctx.shadowBlur=0;
+      }
+      requestAnimationFrame(frame);
+      document.getElementById('celebrate').addEventListener('click', () => {
+        for (let i=0;i<5;i++) {
+          setTimeout(() => burst(w*(.15+Math.random()*.7), h*(.12+Math.random()*.48)), i*180);
+        }
+      });
+      // Multicolour touch celebration for VAIBHAV BHAIYA.
+      const touchColors = ['#ff4d6d','#ffd166','#06d6a0','#4cc9f0','#c77dff','#ff8fab','#f8f7ff'];
+      const touchEmojis = ['💛','❤️','💖','✨','🌟','🪔','🎉'];
+      document.addEventListener('pointerdown', (event) => {
+        if (event.target.closest('button')) return;
+        const x = event.clientX;
+        const y = event.clientY;
+        const color = touchColors[Math.floor(Math.random() * touchColors.length)];
 
-<div class="bg-image" id="bgImage"></div>
-<div class="bg-reveal" id="bgReveal"></div>
-<canvas id="stars"></canvas>
+        const name = document.createElement('div');
+        name.className = 'touch-pop';
+        name.textContent = '✨ VAIBHAV BHAIYA ✨';
+        name.style.left = x + 'px';
+        name.style.top = y + 'px';
+        name.style.color = color;
+        name.style.textShadow = '0 0 9px ' + color + ', 0 0 24px ' + color + ', 0 2px 5px #321629';
+        document.body.appendChild(name);
 
-<!-- START -->
-<div class="center" id="start">
-  <div class="avatar">🧍</div>
-  <div class="hint">Click anywhere for a surprise ✨</div>
-</div>
+        const ring = document.createElement('div');
+        ring.className = 'touch-ring';
+        ring.style.left = x + 'px';
+        ring.style.top = y + 'px';
+        ring.style.setProperty('--touch-color', color);
+        document.body.appendChild(ring);
 
-<!-- REVEAL -->
-<div class="center content" id="reveal">
+        const heart = document.createElement('div');
+        heart.className = 'touch-heart';
+        heart.textContent = touchEmojis[Math.floor(Math.random() * touchEmojis.length)];
+        heart.style.left = (x + 25) + 'px';
+        heart.style.top = (y + 15) + 'px';
+        document.body.appendChild(heart);
 
-  <div class="name-wrap">
-    <div class="orbit">
-      <span>WELCOME • CELEBRATION • 2026 • HAPPINESS • JOY • NEW BEGINNING •</span>
-    </div>
-    <div class="name" id="name"></div>
-  </div>
+        // A colourful mini-sparkle shower radiates from every touch.
+        for (let i = 0; i < 12; i++) {
+          const spark = document.createElement('span');
+          spark.className = 'touch-spark';
+          spark.textContent = ['✦','✧','•','✨'][i % 4];
+          const angle = (Math.PI * 2 * i / 12) + Math.random() * .25;
+          const distance = 55 + Math.random() * 95;
+          spark.style.left = x + 'px';
+          spark.style.top = y + 'px';
+          spark.style.setProperty('--dx', (Math.cos(angle) * distance) + 'px');
+          spark.style.setProperty('--dy', (Math.sin(angle) * distance) + 'px');
+          spark.style.setProperty('--touch-color', touchColors[Math.floor(Math.random() * touchColors.length)]);
+          document.body.appendChild(spark);
+          spark.addEventListener('animationend', () => spark.remove(), {once:true});
+        }
 
-  <div class="tagline">"End-to-end encryption⁉️"</div>
-
-  <div class="quote">
-    “Two people may speak in a crowded room,<br>
-    yet their words remain only theirs.”
-  </div>
-
-  <div class="year" id="year">
-    Happy New Year <span>2</span><span>0</span><span>2</span><span>6</span> 🎆
-  </div>
-</div>
-
-<script>
-/* STARS */
-const c=document.getElementById("stars"),x=c.getContext("2d");
-let w,h,stars=[],active=false;
-
-function resize(){
-  w=c.width=innerWidth;
-  h=c.height=innerHeight;
-  stars=Array.from({length:200},()=>({
-    x:Math.random()*w,
-    y:Math.random()*h,
-    z:Math.random()*1.4+.3
-  }));
-}
-addEventListener("resize",resize);
-resize();
-
-function draw(){
-  x.clearRect(0,0,w,h);
-  x.fillStyle="#fff";
-  stars.forEach(s=>{
-    s.y+=active?s.z:.12;
-    if(s.y>h)s.y=0;
-    x.globalAlpha=active?.7:.12;
-    x.fillRect(s.x,s.y,2,2);
-  });
-  requestAnimationFrame(draw);
-}
-draw();
-
-/* CLICK ANYWHERE */
-const start=document.getElementById("start");
-const reveal=document.getElementById("reveal");
-const bgImage=document.getElementById("bgImage");
-const bgReveal=document.getElementById("bgReveal");
-const nameEl=document.getElementById("name");
-const yearEl=document.getElementById("year");
-const digits=[...yearEl.querySelectorAll("span")];
-
-const NAME="AMRIT BHAIYA";
-let done=false;
-
-document.body.onclick=()=>{
-  if(done) return;
-  done=true;
-
-  active=true;
-  bgImage.style.opacity=0;
-  bgReveal.style.opacity=1;
-  start.style.opacity=0;
-
-  setTimeout(()=>{
-    start.style.display="none";
-    reveal.classList.add("show");
-    animateName();
-    animateYear();
-  },1300);
-};
-
-function animateName(){
-  [...NAME].forEach((c,i)=>{
-    const s=document.createElement("span");
-    s.textContent=c===" "?"\u00A0":c;
-    s.style.animationDelay=`${i*.12}s,${i*.15}s`;
-    nameEl.appendChild(s);
-  });
-}
-
-function animateYear(){
-  digits.forEach((d,i)=>{
-    d.style.animationDelay=`${i*.25}s`;
-  });
-  setTimeout(()=>yearEl.classList.add("done"),1200);
-}
-</script>
-
+        burst(x, y);
+        name.addEventListener('animationend', () => name.remove(), {once:true});
+        ring.addEventListener('animationend', () => ring.remove(), {once:true});
+        heart.addEventListener('animationend', () => heart.remove(), {once:true});
+      });
+    })();
+  </script>
 </body>
 </html>
